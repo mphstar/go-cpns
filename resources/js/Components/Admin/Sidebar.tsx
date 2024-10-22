@@ -13,6 +13,7 @@ import {
     TooltipTrigger,
 } from "../ui/tooltip";
 import sidebar from "@/routes/sidebar";
+import { Link } from "@inertiajs/react";
 
 const Sidebar = () => {
     const adminStore = useAdminStore();
@@ -23,9 +24,9 @@ const Sidebar = () => {
                 className={clsx(
                     "bg-background border-r-2 flex flex-col px-4 fixed top-0 left-0 min-h-full duration-300 ease-in-out flex-nowrap whitespace-nowrap",
                     adminStore.sidebarCollapsed
-                        ? "md:w-[350px]"
+                        ? "md:w-[250px]"
                         : "md:w-[80px] ",
-                    "w-[70%] z-[50]",
+                    "w-[70%] z-[22]",
                     adminStore.showSidebar
                         ? "translate-x-0"
                         : "-translate-x-full",
@@ -56,57 +57,59 @@ const Sidebar = () => {
 
                         <h1
                             className={clsx(
-                                "flex-1",
+                                "flex-1 font-semibold text-lg",
                                 adminStore.sidebarCollapsed
                                     ? "md:block"
                                     : "md:hidden"
                             )}
                         >
-                            Stacyy Admin
+                            CPNS
                         </h1>
                     </div>
                     {sidebar.map((item, index) => (
-                        <div
-                            className={clsx(
-                                "h-full flex items-center rounded-md gap-3 duration-300 ease-in-out px-4 py-3 cursor-pointer",
-                                adminStore.sidebarCollapsed
-                                    ? "md:justify-normal"
-                                    : "md:justify-center",
-                                adminStore.title === item.name
-                                    ? "bg-slate-800 text-white"
-                                    : "hover:bg-slate-100 dark:hover:bg-slate-900",
-                            )}
-                        >
-                            <TooltipProvider delayDuration={0}>
-                                <Tooltip>
-                                    <TooltipTrigger asChild>
-                                        <div>{item.icon}</div>
-                                    </TooltipTrigger>
-                                    <TooltipContent
-                                        side="right"
-                                        className={clsx(
-                                            "hidden",
-                                            adminStore.sidebarCollapsed
-                                                ? "md:hidden"
-                                                : "md:block",
-                                            "bg-slate-900 text-white"
-                                        )}
-                                    >
-                                        <p>{item.name}</p>
-                                    </TooltipContent>
-                                </Tooltip>
-                            </TooltipProvider>
-
-                            <span
+                        <Link key={index} href={item.path}>
+                            <div
                                 className={clsx(
-                                    !adminStore.sidebarCollapsed
-                                        ? "md:hidden"
-                                        : "md:block"
+                                    "h-full flex items-center rounded-md gap-3 duration-300 ease-in-out px-4 py-2 cursor-pointer text-sm",
+                                    adminStore.sidebarCollapsed
+                                        ? "md:justify-normal"
+                                        : "md:justify-center",
+                                    adminStore.title === item.name
+                                        ? "bg-slate-800 text-white"
+                                        : "hover:bg-slate-100 dark:hover:bg-slate-900"
                                 )}
                             >
-                                {item.name}
-                            </span>
-                        </div>
+                                <TooltipProvider delayDuration={0}>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <div>{item.icon}</div>
+                                        </TooltipTrigger>
+                                        <TooltipContent
+                                            side="right"
+                                            className={clsx(
+                                                "hidden",
+                                                adminStore.sidebarCollapsed
+                                                    ? "md:hidden"
+                                                    : "md:block",
+                                                "bg-slate-900 text-white"
+                                            )}
+                                        >
+                                            <p>{item.name}</p>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
+
+                                <span
+                                    className={clsx(
+                                        !adminStore.sidebarCollapsed
+                                            ? "md:hidden"
+                                            : "md:block"
+                                    )}
+                                >
+                                    {item.name}
+                                </span>
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </div>
@@ -115,7 +118,7 @@ const Sidebar = () => {
             <div
                 onClick={() => adminStore.handleSidebar()}
                 className={clsx(
-                    "fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-[40] duration-300 ease-in-out",
+                    "fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-[21] duration-300 ease-in-out",
                     adminStore.showSidebar
                         ? "opacity-100 pointer-events-auto"
                         : "opacity-0 pointer-events-none"

@@ -7,6 +7,10 @@ const Dashboard = () => {
 
     useEffect(() => {
         store.setTitle("Dashboard");
+
+        return () => {
+            store.reset();
+        };
     }, []);
 
     return (

@@ -5,22 +5,24 @@ import useAdminStore from "@/stores/useAdminStore";
 import clsx from "clsx";
 import React, { ReactNode } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
+import CustomDialog from "./CustomDialog";
 
 const AdminTemplate = ({ children }: { children: ReactNode }) => {
     const adminStore = useAdminStore();
 
     return (
         <div className="min-h-[100dvh] bg-bgWhite dark:bg-background flex flex-row">
+            <CustomDialog title={adminStore.titleModal} description={adminStore.descriptionModal} body={adminStore.bodyModal} />
             <Sidebar />
             <div
                 className={clsx(
                     "flex flex-col w-full duration-300 ease-in-out",
                     adminStore.sidebarCollapsed
-                        ? "md:pl-[350px]"
+                        ? "md:pl-[250px]"
                         : "md:pl-[80px]"
                 )}
             >
-                <div className="w-full flex flex-row px-4 py-4 sticky top-0 bg-background border-b-2">
+                <div className="w-full flex flex-row px-4 py-4 sticky top-0 z-[20] bg-background border-b-2">
                     <div className="flex items-center gap-1 flex-1">
                         <Button
                             onClick={() => adminStore.handleSidebar()}
