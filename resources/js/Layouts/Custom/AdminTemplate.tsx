@@ -12,7 +12,11 @@ const AdminTemplate = ({ children }: { children: ReactNode }) => {
 
     return (
         <div className="min-h-[100dvh] bg-bgWhite dark:bg-background flex flex-row">
-            <CustomDialog title={adminStore.titleModal} description={adminStore.descriptionModal} body={adminStore.bodyModal} />
+            <CustomDialog
+                title={adminStore.titleModal}
+                description={adminStore.descriptionModal}
+                body={adminStore.bodyModal}
+            />
             <Sidebar />
             <div
                 className={clsx(
@@ -38,7 +42,7 @@ const AdminTemplate = ({ children }: { children: ReactNode }) => {
                         <ModeToggle />
                     </div>
                 </div>
-                <div className="h-[2000px] p-4">{children}</div>
+                <div className="p-4">{children}</div>
             </div>
         </div>
     );

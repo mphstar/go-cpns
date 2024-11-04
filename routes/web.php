@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BankSoalController;
 use App\Http\Controllers\Admin\MateriController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ProfileController;
@@ -37,6 +38,8 @@ Route::get('/dashboard', function () {
 
 Route::get('/users', [UserController::class, 'index'])->name('admin.users');
 Route::get('/materi', [MateriController::class, 'index'])->name('admin.materi');
+Route::get('/bank-soal', [BankSoalController::class, 'index'])->name('admin.bank-soal');
+Route::get('/bank-soal/create', [BankSoalController::class, 'create'])->name('admin.bank-soal.create');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

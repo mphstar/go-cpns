@@ -1,3 +1,4 @@
+import { Badge } from "@/Components/ui/badge";
 import { Button } from "@/Components/ui/button";
 import { DialogTrigger } from "@/Components/ui/dialog";
 import { Input } from "@/Components/ui/input";
@@ -22,6 +23,7 @@ import AdminTemplate from "@/Layouts/Custom/AdminTemplate";
 import CustomPagination from "@/Layouts/Custom/CustomPaginate";
 import CustomTooltip from "@/Layouts/Custom/CustomTooltip";
 import useAdminStore from "@/stores/useAdminStore";
+import { Link } from "@inertiajs/react";
 import React, { useEffect } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { HiOutlineDownload } from "react-icons/hi";
@@ -46,7 +48,7 @@ const Index = () => {
     const store = useAdminStore();
 
     useEffect(() => {
-        store.setTitle("Materi");
+        store.setTitle("Bank Soal");
         store.setTitleModal("Tambah Materi");
         store.setBodyModal(<FormDialog />);
 
@@ -77,32 +79,40 @@ const Index = () => {
                     <TableHeader>
                         <TableRow>
                             <TableHead className="w-[100px]">No</TableHead>
-                            <TableHead>Nama Materi</TableHead>
+                            <TableHead>Judul</TableHead>
+                            <TableHead>Jenis Soal</TableHead>
+                            <TableHead>Jumlah Soal</TableHead>
+                            <TableHead>Waktu Pengerjaan</TableHead>
+                            <TableHead>Status</TableHead>
                             <TableHead className="text-right">Action</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         <TableRow>
                             <TableCell className="font-medium">1</TableCell>
-                            <TableCell>Materi Wawasan Kebangsaan</TableCell>
+                            <TableCell>Kuis 1</TableCell>
+                            <TableCell>Bela Negara</TableCell>
+                            <TableCell>80</TableCell>
+                            <TableCell>60 Menit</TableCell>
+                            <TableCell>
+                                <div>
+                                    <Badge className="bg-green-500 hover:bg-green-500 whitespace-nowrap">
+                                        Tidak Aktif
+                                    </Badge>
+                                </div>
+                            </TableCell>
                             <TableCell className="text-right">
                                 <div className="flex gap-2 w-full justify-end">
-                                    <CustomTooltip content="Download">
-                                        <Button
-                                            variant="default"
-                                            className="aspect-square overflow-hidden p-0"
-                                        >
-                                            <HiOutlineDownload />
-                                        </Button>
-                                    </CustomTooltip>
-                                    <CustomTooltip content="Edit Data">
-                                        <Button
-                                            variant="default"
-                                            className="bg-orange-400 hover:bg-orange-500 aspect-square overflow-hidden p-0"
-                                        >
-                                            <MdOutlineModeEditOutline />
-                                        </Button>
-                                    </CustomTooltip>
+                                    <Link href="/bank-soal/create">
+                                        <CustomTooltip content="Edit Data">
+                                            <Button
+                                                variant="default"
+                                                className="bg-orange-400 hover:bg-orange-500 aspect-square overflow-hidden p-0"
+                                            >
+                                                <MdOutlineModeEditOutline />
+                                            </Button>
+                                        </CustomTooltip>
+                                    </Link>
                                     <CustomTooltip content="Hapus Data">
                                         <Button
                                             variant="destructive"
