@@ -1,20 +1,13 @@
 import { Button } from "@/Components/ui/button";
 import {
-    DialogClose,
-    DialogFooter,
-    DialogTrigger,
-} from "@/Components/ui/dialog";
-import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
     FormMessage,
 } from "@/Components/ui/form";
 import { Input } from "@/Components/ui/input";
-import { Label } from "@/Components/ui/label";
 import {
     Select,
     SelectContent,
@@ -25,7 +18,6 @@ import {
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
     TableHead,
     TableHeader,
@@ -36,17 +28,11 @@ import CustomPagination from "@/Layouts/Custom/CustomPaginate";
 import CustomTooltip from "@/Layouts/Custom/CustomTooltip";
 import useAdminStore from "@/stores/useAdminStore";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, {
-    ChangeEvent,
-    ChangeEventHandler,
-    useEffect,
-    useState,
-} from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiOutlineDelete } from "react-icons/ai";
-import { HiDownload } from "react-icons/hi";
 import { MdOutlineModeEditOutline } from "react-icons/md";
-import { optional, z } from "zod";
+import { z } from "zod";
 import Swal from "sweetalert2";
 import SubmitForm from "@/utils/SubmitForm";
 import useFetch from "@/utils/Fetcher";
@@ -88,6 +74,7 @@ const FormDialog = () => {
             onSuccess(result) {
                 store.setIsOpenModal(false);
                 mutate(store.refreshUrl);
+                form.reset();
             },
         });
     }
