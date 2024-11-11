@@ -18,6 +18,10 @@ type AdminStore = {
     isOpenModal: boolean;
     setIsOpenModal: (isOpenModal: boolean) => void;
     reset: () => void;
+    refreshUrl: string;
+    setRefreshUrl: (refreshUrl: string) => void;
+    modalData: any;
+    setModalData: (modalData: any) => void;
 };
 
 const useAdminStore = create<AdminStore>((set) => ({
@@ -48,7 +52,13 @@ const useAdminStore = create<AdminStore>((set) => ({
             descriptionModal: "",
             bodyModal: "",
             isOpenModal: false,
+            refreshUrl: "",
+            modalData: {},
         }),
+    refreshUrl: "",
+    setRefreshUrl: (refreshUrl) => set({ refreshUrl }),
+    modalData: {},
+    setModalData: (modalData) => set({ modalData }),
 }));
 
 export default useAdminStore;

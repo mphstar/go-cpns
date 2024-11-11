@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+.loadingspinner {
+    pointer-events: none;
+    width: 2.5em;
+    height: 2.5em;
+    border: 0.4em solid transparent;
+    border-color: #eee;
+    /* border-top-color: #00BDFE; */
+    border-radius: 50%;
+    outline: none;
+    animation: loadingspin 1s linear infinite;
+    @apply border-t-primary;
+}
+
+@keyframes loadingspin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.body-loading {
+    border: none;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @layer base {
     :root {
         --background: 0 0% 100%;
@@ -57,27 +87,34 @@
         --chart-4: 280 65% 60%;
         --chart-5: 340 75% 55%;
     }
+
+    
+}
+
+/* fix css darkmode sweetalert2 */
+.swal2-container .swal2-popup {
+    @apply bg-background text-foreground;
 }
 
 /* width */
 ::-webkit-scrollbar {
-  width: 5px;
+    width: 5px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  @apply bg-background;
+    @apply bg-background;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
+    background: #888;
+    border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+    background: #555;
 }
 
 .poppins-thin {
@@ -198,10 +235,10 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
+    * {
+        @apply border-border;
     }
-  body {
-    @apply bg-background text-foreground;
+    body {
+        @apply bg-background text-foreground;
     }
 }
