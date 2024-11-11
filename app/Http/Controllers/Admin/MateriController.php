@@ -40,7 +40,7 @@ class MateriController extends Controller
         }
 
         // rename file random
-        $filename = time() . '-' . $file->getClientOriginalExtension();
+        $filename = time() . '.' . $file->getClientOriginalExtension();
         $file->move(public_path('uploads/materi'), $filename);
 
         $data->file = $filename;
@@ -101,7 +101,7 @@ class MateriController extends Controller
             }
 
             // rename file random
-            $filename = time() . '-' . $file->getClientOriginalExtension();
+            $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads/materi'), $filename);
 
             $data->file = $filename;
