@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BankSoalController;
 use App\Http\Controllers\Admin\MateriController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Http\Request;
@@ -25,6 +26,10 @@ Route::get('/materi', [MateriController::class, 'getData'])->name('api.materi');
 Route::post('/materi/create', [MateriController::class, 'store'])->name('api.materi.create');
 Route::post('/materi/update', [MateriController::class, 'update'])->name('api.materi.update');
 Route::post('/materi/delete', [MateriController::class, 'delete'])->name('api.materi.delete');
+
+Route::get('/bank-soal', [BankSoalController::class, 'getData'])->name('api.bank-soal');
+Route::post('/bank-soal/create', [BankSoalController::class, 'store'])->name('api.bank-soal.create');
+Route::post('/bank-soal/delete', [BankSoalController::class, 'delete'])->name('api.bank-soal.delete');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

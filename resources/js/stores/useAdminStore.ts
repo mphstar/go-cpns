@@ -17,6 +17,8 @@ type AdminStore = {
     setBodyModal: (bodyModal: React.ReactNode) => void;
     isOpenModal: boolean;
     setIsOpenModal: (isOpenModal: boolean) => void;
+    classNameModal: string;
+    setClassNameModal: (classNameModal: string) => void;
     reset: () => void;
     refreshUrl: string;
     setRefreshUrl: (refreshUrl: string) => void;
@@ -43,6 +45,8 @@ const useAdminStore = create<AdminStore>((set) => ({
     setBodyModal: (bodyModal) => set({ bodyModal }),
     isOpenModal: false,
     setIsOpenModal: (isOpenModal) => set({ isOpenModal }),
+    classNameModal: "",
+    setClassNameModal: (classNameModal) => set({ classNameModal }),
 
     reset: () =>
         set({
@@ -52,6 +56,7 @@ const useAdminStore = create<AdminStore>((set) => ({
             descriptionModal: "",
             bodyModal: "",
             isOpenModal: false,
+            classNameModal: "",
             refreshUrl: "",
             modalData: {},
         }),

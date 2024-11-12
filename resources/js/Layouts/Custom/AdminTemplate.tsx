@@ -16,6 +16,7 @@ const AdminTemplate = ({ children }: { children: ReactNode }) => {
                 title={adminStore.titleModal}
                 description={adminStore.descriptionModal}
                 body={adminStore.bodyModal}
+                className={adminStore.classNameModal}
             />
             <Sidebar />
             <div
