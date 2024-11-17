@@ -39,7 +39,7 @@ Route::get('/dashboard', function () {
 Route::get('/users', [UserController::class, 'index'])->name('admin.users');
 Route::get('/materi', [MateriController::class, 'index'])->name('admin.materi');
 Route::get('/bank-soal', [BankSoalController::class, 'index'])->name('admin.bank-soal');
-Route::get('/bank-soal/create', [BankSoalController::class, 'create'])->name('admin.bank-soal.create');
+Route::get('/bank-soal/{id}', [BankSoalController::class, 'create'])->name('admin.bank-soal.create')->where('id', '[0-9]+');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

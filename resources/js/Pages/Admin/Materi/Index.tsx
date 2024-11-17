@@ -49,7 +49,9 @@ const formSchema = z.object({
     file: z
         .instanceof(File)
         .refine((file) => file.size < 1024 * 1024 * 10)
-        .refine((file) => file.type === "application/pdf")
+        .refine((file) => file.type === "application/pdf", {
+            message: "File harus berupa PDF",
+        })
         .optional()
         .nullable(),
 });
@@ -226,7 +228,7 @@ const Index = () => {
 
     return (
         <AdminTemplate>
-            <div className="flex flex-col">
+            <div className="flex flex-col min-h-[80dvh]">
                 <div className="flex flex-col md:flex-row mb-3 justify-between gap-2">
                     <div>
                         <Input

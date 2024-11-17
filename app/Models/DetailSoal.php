@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BankSoal extends Model
+class DetailSoal extends Model
 {
     use HasFactory;
-    protected $table = 'bank_soal'; // mendevinisikan nama table
+    protected $table = 'detail_bank_soal'; // mendevinisikan nama table
     protected $primaryKey = 'id'; // mendevinisikan primary key
     public $incrementing = true; // auto pada primaryKey incremment true
     public $timestamps = true; // create_at dan update_at false
@@ -17,8 +17,8 @@ class BankSoal extends Model
     protected $guarded = [];
 
     // relation
-    public function soal()
+    public function jawaban()
     {
-        return $this->hasMany(DetailSoal::class, 'bank_soal_id', 'id');
+        return $this->hasMany(DetailJawaban::class, 'detail_bank_soal_id', 'id');
     }
 }

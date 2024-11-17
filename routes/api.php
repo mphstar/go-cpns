@@ -30,6 +30,11 @@ Route::post('/materi/delete', [MateriController::class, 'delete'])->name('api.ma
 Route::get('/bank-soal', [BankSoalController::class, 'getData'])->name('api.bank-soal');
 Route::post('/bank-soal/create', [BankSoalController::class, 'store'])->name('api.bank-soal.create');
 Route::post('/bank-soal/delete', [BankSoalController::class, 'delete'])->name('api.bank-soal.delete');
+Route::post('/bank-soal/update', [BankSoalController::class, 'update'])->name('api.bank-soal.update');
+Route::post('/bank-soal/soal/delete', [BankSoalController::class, 'deleteSoal'])->name('api.bank-soal.soal.delete');
+Route::get('/bank-soal/get-soal', [BankSoalController::class, 'getSoal'])->name('api.bank-soal.get-soal');
+Route::post('/bank-soal/update-soal', [BankSoalController::class, 'updateSoal'])->name('api.bank-soal.update-soal');
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

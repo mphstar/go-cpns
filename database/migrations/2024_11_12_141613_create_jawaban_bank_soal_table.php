@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('jawaban_bank_soal', function (Blueprint $table) {
             $table->id();
             $table->foreignId('detail_bank_soal_id')->constrained('detail_bank_soal')->onDelete('cascade')->onUpdate('cascade');
+            $table->enum('opsi', ['A', 'B', 'C', 'D']);
             $table->text('jawaban');
             $table->string('gambar_jawaban')->nullable();
             $table->integer('nilai')->default(0);

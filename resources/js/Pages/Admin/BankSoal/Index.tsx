@@ -366,7 +366,7 @@ const Index = () => {
                                                     ? "Bela Negara"
                                                     : "Pilar Negara"}
                                             </TableCell>
-                                            <TableCell>80</TableCell>
+                                            <TableCell>{item.soal.length} Soal</TableCell>
                                             <TableCell>
                                                 {item.waktu_pengerjaan} Menit
                                             </TableCell>
@@ -388,7 +388,9 @@ const Index = () => {
                                             </TableCell>
                                             <TableCell className="text-right">
                                                 <div className="flex gap-2 w-full justify-end">
-                                                    <Link href="/bank-soal/create">
+                                                    <Link
+                                                        href={`/bank-soal/${item.id}`}
+                                                    >
                                                         <CustomTooltip content="Edit Data">
                                                             <Button
                                                                 variant="default"

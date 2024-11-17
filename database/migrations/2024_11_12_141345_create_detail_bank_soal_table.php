@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('bank_soal_id')->constrained('bank_soal')->onDelete('cascade')->onUpdate('cascade');
             $table->enum('tipe_soal', ['twk', 'tiu', 'tkp'])->default('twk');
-            $table->integer('nomor_soal');
+            // $table->integer('nomor_soal');
             $table->text('soal');
             $table->string('gambar_soal')->nullable();
             $table->timestamps();
