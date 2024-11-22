@@ -281,6 +281,10 @@ class BankSoalController extends Controller
             $data->where('judul', 'like', '%' . $request->search . '%');
         }
 
+        if ($request->has('filter') && $request->filter != '' && $request->filter != 'all') {
+            $data->where('status', $request->filter);
+        }
+
         return response()->json([
             'status' => 'success',
             'message' => 'Successfully get data',
