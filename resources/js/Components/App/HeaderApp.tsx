@@ -7,16 +7,19 @@ import { ModeToggle } from "../ui/mode-toggle";
 import { LuUser } from "react-icons/lu";
 import { IoExitOutline } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
+import { Link } from "@inertiajs/react";
 
 const HeaderApp = () => {
     return (
         <nav className="px-4 py-4 flex justify-between items-center max-w-7xl mx-auto w-full sticky top-0 z-[100] bg-[#F1F7FD] dark:bg-[#131414]">
-            <div className="flex items-center">
-                <span className="text-2xl font-bold text-cyan-500">GO</span>
-                <span className="text-2xl font-bold text-gray-800 dark:text-white">
-                    CPNS
-                </span>
-            </div>
+            <Link href="/">
+                <div className="flex items-center">
+                    <span className="text-2xl font-bold text-cyan-500">GO</span>
+                    <span className="text-2xl font-bold text-gray-800 dark:text-white">
+                        CPNS
+                    </span>
+                </div>
+            </Link>
             <div className="hidden md:flex space-x-4">
                 <div className="flex items-center gap-2">
                     <ModeToggle />

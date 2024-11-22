@@ -38,7 +38,8 @@ const Tryout = () => {
                 <h1 className="font-semibold text-xl">Try Out</h1>
                 {/* add description */}
                 <p className="text-gray-500 dark:text-gray-400 text-sm">
-                    Uji pemahaman kamu dengan mengerjakan latihan soal dan try out.
+                    Uji pemahaman kamu dengan mengerjakan latihan soal dan try
+                    out.
                 </p>
 
                 <div className="flex flex-row gap-2 mt-4 items-center bg-background border-[2px] px-4 py-1 rounded-md">
@@ -52,35 +53,22 @@ const Tryout = () => {
 
             <div className="sticky left-0 top-16 mt-4 z-[88] bg-[#F1F7FD] dark:bg-[#131414] px-4 max-w-7xl w-full mx-auto">
                 <Tabs
-                    defaultValue="Tes Wawasan Kebangsaan"
+                    defaultValue="Bela Negara"
                     className="flex flex-wrap bg-transparent p-0"
                 >
                     <TabsList className="bg-transparent w-full md:w-fit">
                         <TabsTrigger
                             className="data-[state=active]:text-cyan-500 data-[state=active]:bg-transparent data-[state=active]:font-semibold w-full data-[state=active]:border-b-4 border-cyan-500"
-                            value="Tes Wawasan Kebangsaan"
+                            value="Bela Negara"
                         >
-                            <span className="block md:hidden">TWK</span>
-                            <span className="hidden md:block">
-                                Tes Wawasan Kebangsaan
-                            </span>
+                            <span className="">Bela Negara</span>
                         </TabsTrigger>
                         <TabsTrigger
                             className="data-[state=active]:text-cyan-500 data-[state=active]:bg-transparent data-[state=active]:font-semibold w-full data-[state=active]:border-b-4 border-cyan-500"
-                            value="Tes Intelegensi Umum"
+                            value="Pilar Negara"
                         >
-                            <span className="block md:hidden">TIU</span>
-                            <span className="hidden md:block">
-                                Tes Intelegensi Umum
-                            </span>
-                        </TabsTrigger>
-                        <TabsTrigger
-                            className="data-[state=active]:text-cyan-500 data-[state=active]:bg-transparent data-[state=active]:font-semibold w-full data-[state=active]:border-b-4 border-cyan-500"
-                            value="Tes Karakteristik Pribadi"
-                        >
-                            <span className="block md:hidden">TKP</span>
-                            <span className="hidden md:block">
-                                Tes Karakteristik Pribadi
+                            <span className="">
+                                Pilar Negara
                             </span>
                         </TabsTrigger>
                     </TabsList>
