@@ -1,3 +1,4 @@
+import HeaderApp from "@/Components/App/HeaderApp";
 import {
     Accordion,
     AccordionContent,
@@ -22,48 +23,7 @@ const Welcome = () => {
                 </button>
             </div>
             <div className="w-full min-h-screen flex flex-col bg-[#F1F7FD] dark:bg-[#131414]">
-                <nav className="px-4 py-4 flex justify-between items-center max-w-7xl mx-auto w-full">
-                    <div className="flex items-center">
-                        <span className="text-2xl font-bold text-cyan-500">
-                            GO
-                        </span>
-                        <span className="text-2xl font-bold text-gray-800 dark:text-white">
-                            CPNS
-                        </span>
-                    </div>
-                    <div className="hidden md:flex space-x-8">
-                        <a
-                            href="#"
-                            className="text-gray-600 dark:text-gray-300 hover:text-gray-900"
-                        >
-                            Tentang
-                        </a>
-                        <a
-                            href="#"
-                            className="text-gray-600 dark:text-gray-300 hover:text-gray-900"
-                        >
-                            Keunggulan
-                        </a>
-                        <a
-                            href="#"
-                            className="text-gray-600 dark:text-gray-300 hover:text-gray-900"
-                        >
-                            Testimoni
-                        </a>
-                        <a
-                            href="#"
-                            className="text-gray-600 dark:text-gray-300 hover:text-gray-900"
-                        >
-                            Paket
-                        </a>
-                        <a
-                            href="#"
-                            className="text-gray-600 dark:text-gray-300 hover:text-gray-900"
-                        >
-                            Blog
-                        </a>
-                    </div>
-                </nav>
+                <HeaderApp />
                 <div className="max-w-7xl mx-auto px-4 py-12 md:py-24">
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         {/* Left Content */}
