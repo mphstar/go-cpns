@@ -46,6 +46,11 @@ import { z } from "zod";
 
 const formSchema = z.object({
     name: z.string().min(3).max(255),
+    kategori: z.enum([
+        "Tes Karakteristik Pribadi",
+        "Tes Wawasan Kebangsaan",
+        "Tes Intelegensia Umum",
+    ]),
     file: z
         .instanceof(File)
         .refine((file) => file.size < 1024 * 1024 * 10)
@@ -63,6 +68,7 @@ const FormDialog = () => {
         resolver: zodResolver(formSchema),
         values: {
             name: store.modalData.name || "",
+            kategori: store.modalData.kategori || "Tes Karakteristik Pribadi",
             file: null,
         },
     });
@@ -78,6 +84,7 @@ const FormDialog = () => {
         }
 
         formData.append("name", values.name);
+        formData.append("kategori", values.kategori);
         if (values.file) {
             formData.append("file", values.file);
         }
@@ -110,6 +117,37 @@ const FormDialog = () => {
                             <FormLabel>Name</FormLabel>
                             <FormControl>
                                 <Input placeholder="" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="kategori"
+                    render={({ field }) => (
+                        <FormItem className="px-1">
+                            <FormLabel>Kategori</FormLabel>
+                            <FormControl>
+                                <Select
+                                    onValueChange={(e) => field.onChange(e)}
+                                    {...field}
+                                >
+                                    <SelectTrigger>
+                                        <SelectValue>{field.value}</SelectValue>
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="Tes Wawasan Kebangsaan">
+                                            Tes Wawasan Kebangsaan
+                                        </SelectItem>
+                                        <SelectItem value="Tes Intelegensia Umum">
+                                            Tes Intelegensia Umum
+                                        </SelectItem>
+                                        <SelectItem value="Tes Karakteristik Pribadi">
+                                            Tes Karakteristik Pribadi
+                                        </SelectItem>
+                                    </SelectContent>
+                                </Select>
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -178,8 +216,9 @@ const Index = () => {
 
     const [page, setPage] = useState(1);
     const [search, setSearch] = useState("");
+    const [kategori, setKategori] = useState("all");
 
-    const url = `/api/materi?page=${page}&search=${search}`;
+    const url = `/api/materi?page=${page}&search=${search}&kategori=${kategori}`;
 
     const handleSearch = debounce((term) => {
         setSearch(term);
@@ -238,6 +277,26 @@ const Index = () => {
                         />
                     </div>
                     <div className="flex gap-2 justify-end">
+                        <Select
+                            value={kategori}
+                            onValueChange={(e) => setKategori(e)}
+                        >
+                            <SelectTrigger className="w-full md:w-[180px]">
+                                <SelectValue placeholder="Filter" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="all">All</SelectItem>
+                                <SelectItem value="Tes Karakteristik Pribadi">
+                                    Tes Karakteristik Pribadi
+                                </SelectItem>
+                                <SelectItem value="Tes Wawasan Kebangsaan">
+                                    Tes Wawasan Kebangsaan
+                                </SelectItem>
+                                <SelectItem value="Tes Intelegensia Umum">
+                                    Tes Intelegensia Umum
+                                </SelectItem>
+                            </SelectContent>
+                        </Select>
                         <Button
                             onClick={() => {
                                 handleTambah();
@@ -260,6 +319,7 @@ const Index = () => {
                                     <TableHead className="w-[100px]">
                                         No
                                     </TableHead>
+                                    <TableHead>kategori</TableHead>
                                     <TableHead>Nama Materi</TableHead>
                                     <TableHead className="text-right">
                                         Action
@@ -272,6 +332,9 @@ const Index = () => {
                                         <TableRow key={index}>
                                             <TableCell className="font-medium">
                                                 {data.result.from + index}
+                                            </TableCell>
+                                            <TableCell>
+                                                {item.kategori}
                                             </TableCell>
                                             <TableCell>{item.name}</TableCell>
                                             <TableCell className="text-right">

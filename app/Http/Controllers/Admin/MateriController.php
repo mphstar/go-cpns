@@ -18,6 +18,7 @@ class MateriController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
+            'kategori' => 'required',
             'file' => 'required|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx',
         ]);
 
@@ -30,6 +31,7 @@ class MateriController extends Controller
 
         $data = new Materi;
         $data->name = $request->name;
+        $data->kategori = $request->kategori;
 
         // save file to public path
         $file = $request->file('file');
@@ -60,6 +62,10 @@ class MateriController extends Controller
             $data->where('name', 'like', '%' . $request->search . '%');
         }
 
+        if ($request->has('kategori') && $request->kategori != 'all') {
+            $data->where('kategori', $request->kategori);
+        }
+
         return response()->json([
             'status' => 'success',
             'message' => 'Successfully get data',
@@ -71,6 +77,7 @@ class MateriController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
+            'kategori' => 'required',
             'file' => 'file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx',
         ]);
 
@@ -85,6 +92,7 @@ class MateriController extends Controller
 
 
         $data->name = $request->name;
+        $data->kategori = $request->kategori;
 
         if ($request->hasFile('file')) {
             // save file to public path

@@ -16,7 +16,7 @@ const Welcome = () => {
                 <title>Home</title>
                 <meta name="description" content="Lapor APP FKIP UNEJ" />
             </Head>
-            <div className="fixed bottom-8 right-8">
+            <div className="fixed bottom-8 right-8 z-50">
                 <button className="bg-green-500 text-white px-4 py-2 rounded-full flex items-center gap-2 shadow-lg hover:bg-green-600 transition-colors">
                     <MessageCircle className="w-5 h-5" />
                     <span>Halo kak, ada yang bisa dibantu?</span>
@@ -24,7 +24,7 @@ const Welcome = () => {
             </div>
             <div className="w-full min-h-screen flex flex-col bg-[#F1F7FD] dark:bg-[#131414]">
                 <HeaderApp />
-                <div className="max-w-7xl mx-auto px-4 py-12 md:py-24">
+                <div className="max-w-7xl mx-auto px-4">
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         {/* Left Content */}
                         <div className="order-2 md:order-1">

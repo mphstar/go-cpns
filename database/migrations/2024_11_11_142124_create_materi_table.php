@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('materi', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->enum('kategori', ["Tes Karakteristik Pribadi", "Tes Wawasan Kebangsaan", "Tes Intelegensia Umum"])->default('Tes Karakteristik Pribadi');
             $table->string('file');
             $table->timestamps();
         });
