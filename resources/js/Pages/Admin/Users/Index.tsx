@@ -255,12 +255,13 @@ const Index = () => {
                             placeholder="Search..."
                         />
                     </div>
-                    <div className="flex gap-2 justify-end">
+                    <div className="flex gap-2 justify-end w-full">
                         <Select
+                            
                             value={filter}
                             onValueChange={(e) => setFilter(e)}
                         >
-                            <SelectTrigger className="w-[180px]">
+                            <SelectTrigger className="w-full md:w-[180px]">
                                 <SelectValue placeholder="Filter" />
                             </SelectTrigger>
                             <SelectContent>
