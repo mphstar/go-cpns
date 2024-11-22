@@ -49,6 +49,10 @@ Route::prefix('app')->group(function () {
     Route::get('/materi', function () {
         return Inertia::render('Users/Materi', []);
     });
+
+    Route::get('/tryout', function () {
+        return Inertia::render('Users/Tryout', []);
+    });
 });
 
 Route::middleware('auth')->group(function () {
