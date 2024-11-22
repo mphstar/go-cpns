@@ -4,7 +4,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/Components/ui/accordion";
-import { Head } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 import { MessageCircle } from "lucide-react";
 import { IoClose } from "react-icons/io5";
 
@@ -15,44 +15,44 @@ const Welcome = () => {
                 <title>Home</title>
                 <meta name="description" content="Lapor APP FKIP UNEJ" />
             </Head>
-            <div className="w-full min-h-screen flex flex-col bg-[#F1F7FD]">
+            <div className="w-full min-h-screen flex flex-col bg-[#F1F7FD] dark:bg-[#131414]">
                 <nav className="px-4 py-4 flex justify-between items-center max-w-7xl mx-auto w-full">
                     <div className="flex items-center">
                         <span className="text-2xl font-bold text-cyan-500">
                             GO
                         </span>
-                        <span className="text-2xl font-bold text-gray-800">
+                        <span className="text-2xl font-bold text-gray-800 dark:text-white">
                             CPNS
                         </span>
                     </div>
                     <div className="hidden md:flex space-x-8">
                         <a
                             href="#"
-                            className="text-gray-600 hover:text-gray-900"
+                            className="text-gray-600 dark:text-gray-300 hover:text-gray-900"
                         >
                             Tentang
                         </a>
                         <a
                             href="#"
-                            className="text-gray-600 hover:text-gray-900"
+                            className="text-gray-600 dark:text-gray-300 hover:text-gray-900"
                         >
                             Keunggulan
                         </a>
                         <a
                             href="#"
-                            className="text-gray-600 hover:text-gray-900"
+                            className="text-gray-600 dark:text-gray-300 hover:text-gray-900"
                         >
                             Testimoni
                         </a>
                         <a
                             href="#"
-                            className="text-gray-600 hover:text-gray-900"
+                            className="text-gray-600 dark:text-gray-300 hover:text-gray-900"
                         >
                             Paket
                         </a>
                         <a
                             href="#"
-                            className="text-gray-600 hover:text-gray-900"
+                            className="text-gray-600 dark:text-gray-300 hover:text-gray-900"
                         >
                             Blog
                         </a>
@@ -62,14 +62,14 @@ const Welcome = () => {
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         {/* Left Content */}
                         <div className="order-2 md:order-1">
-                            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+                            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-4">
                                 Bantu Kamu
                                 <br />
                                 Lulus Seleksi
                                 <br />
                                 <span className="text-cyan-500">CPNS!</span>
                             </h1>
-                            <p className="text-gray-600 mb-6">
+                            <p className="text-gray-600 dark:text-gray-300 mb-6">
                                 Pemantapan materi, trik cepat
                                 <br />
                                 dan strategi belajar semua kamu dapetin di sini.
@@ -84,12 +84,16 @@ const Welcome = () => {
                                 </a>
                             </p>
                             <div className="flex space-x-4">
-                                <button className="bg-cyan-500 text-white px-8 py-2 rounded-lg hover:bg-cyan-600 transition-colors">
-                                    Masuk
-                                </button>
-                                <button className="bg-white text-gray-800 px-8 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
-                                    Daftar
-                                </button>
+                                <Link href="/login">
+                                    <button className="bg-cyan-500 text-white px-8 py-2 rounded-lg hover:bg-cyan-600 transition-colors">
+                                        Masuk
+                                    </button>
+                                </Link>
+                                <Link href="/register">
+                                    <button className="bg-white text-gray-800 px-8 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
+                                        Daftar
+                                    </button>
+                                </Link>
                             </div>
                         </div>
 
@@ -107,32 +111,32 @@ const Welcome = () => {
                                         <div className="w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center">
                                             <MessageCircle className="w-5 h-5 text-white" />
                                         </div>
-                                        <span>Mulai No!</span>
+                                        <span className="dark:text-black">Mulai No!</span>
                                     </div>
                                     <div className="bg-white px-6 py-2 rounded-l-full shadow-lg flex items-center gap-2">
                                         <div className="w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center">
                                             <MessageCircle className="w-5 h-5 text-white" />
                                         </div>
-                                        <span>Auto Paham!</span>
+                                        <span className="dark:text-black">Auto Paham!</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div className="flex flex-col w-full h-fit py-8 max-w-7xl mx-auto">
-                    <p className="text-2xl md:text-4xl font-bold text-center text-[#636363]">
+                    <p className="text-2xl md:text-4xl font-bold text-center text-[#636363] dark:text-gray-200">
                         FAQ
                     </p>
                     <div className="relative flex mt-6 items-center justify-center w-full">
                         <div className="h-[1px] absolute w-32 flex bg-[#DEDEDE] mt-6"></div>
                         <div className="h-[4px] absolute w-10 flex bg-cyan-500 mt-6"></div>
                     </div>
-                    <div className="mx-auto container  flex px-12 flex-col max-w-[1000px] gap-4 mt-10">
+                    <div className="mx-auto container  flex px-6 flex-col max-w-[1000px] gap-4 mt-10">
                         <Accordion type="single" collapsible>
                             <AccordionItem value="item-1">
-                                <AccordionTrigger>
+                                <AccordionTrigger className="text-start">
                                     Bagaimana cara membuat akun di GoCPNS?
                                 </AccordionTrigger>
                                 <AccordionContent>
@@ -143,7 +147,7 @@ const Welcome = () => {
                         </Accordion>
                         <Accordion type="single" collapsible>
                             <AccordionItem value="item-2">
-                                <AccordionTrigger>
+                                <AccordionTrigger className="text-start">
                                     Berapa lama masa berlaku paket yang saya
                                     beli?
                                 </AccordionTrigger>
@@ -158,7 +162,7 @@ const Welcome = () => {
                         </Accordion>
                         <Accordion type="single" collapsible>
                             <AccordionItem value="item-2">
-                                <AccordionTrigger>
+                                <AccordionTrigger className="text-start">
                                     Apakah saya bisa mengubah paket langganan?
                                 </AccordionTrigger>
                                 <AccordionContent>
@@ -169,7 +173,7 @@ const Welcome = () => {
                         </Accordion>
                         <Accordion type="single" collapsible>
                             <AccordionItem value="item-3">
-                                <AccordionTrigger>
+                                <AccordionTrigger className="text-start">
                                     Bagaimana cara menghubungi layanan
                                     pelanggan?
                                 </AccordionTrigger>
@@ -182,7 +186,7 @@ const Welcome = () => {
                         </Accordion>
                         <Accordion type="single" collapsible>
                             <AccordionItem value="item-4">
-                                <AccordionTrigger>
+                                <AccordionTrigger className="text-start">
                                     Apakah data saya aman di GoCPNS?
                                 </AccordionTrigger>
                                 <AccordionContent>

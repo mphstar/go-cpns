@@ -43,7 +43,7 @@ const CustomPagination = ({
                 {page > 1 ? (
                     <div
                         onClick={previusPage}
-                        className="flex px-3 py-1 bg-white hover:bg-gray-100 cursor-pointer rounded-md border-[2px]"
+                        className="flex px-3 py-1 bg-white dark:bg-background hover:bg-gray-100 cursor-pointer rounded-md border-[2px]"
                     >
                         {"<"}
                     </div>
