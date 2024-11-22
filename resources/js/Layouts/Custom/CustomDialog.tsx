@@ -29,12 +29,15 @@ const CustomDialog = ({
 }: TypeModal) => {
     const store = useAdminStore();
     return (
+        //
         <>
             <div
                 className={`bg-background flex-col h-fit max-h-[90%] w-[400px] max-w-[90%] px-[27px] py-[23px] flex rounded-lg fixed ${
                     isTumpuk ? "z-[204]" : "z-[201]"
                 } mx-auto right-[50%] translate-x-[50%] top-[50%] -translate-y-[50%] ${
-                    store.isOpenModal ? "scale-100" : "scale-0"
+                    store.isOpenModal
+                        ? "scale-100 pointer-events-auto"
+                        : "pointer-events-none scale-0"
                 } duration-300 ease-in-out ${className}`}
             >
                 <div className="flex flex-col w-full flex-1 overflow-y-auto">
@@ -71,7 +74,7 @@ const CustomDialog = ({
                     store.isOpenModal
                         ? "bg-black/50 pointer-events-auto"
                         : "bg-black/0 pointer-events-none"
-                } fixed inset-0 ${isTumpuk ? "z-[203]" : "z-[200]"}`}
+                } fixed ${isTumpuk ? "z-[203]" : "z-[200]"}`}
             ></div>
         </>
     );
