@@ -15,6 +15,12 @@ const Welcome = () => {
                 <title>Home</title>
                 <meta name="description" content="Lapor APP FKIP UNEJ" />
             </Head>
+            <div className="fixed bottom-8 right-8">
+                <button className="bg-green-500 text-white px-4 py-2 rounded-full flex items-center gap-2 shadow-lg hover:bg-green-600 transition-colors">
+                    <MessageCircle className="w-5 h-5" />
+                    <span>Halo kak, ada yang bisa dibantu?</span>
+                </button>
+            </div>
             <div className="w-full min-h-screen flex flex-col bg-[#F1F7FD] dark:bg-[#131414]">
                 <nav className="px-4 py-4 flex justify-between items-center max-w-7xl mx-auto w-full">
                     <div className="flex items-center">
@@ -111,13 +117,17 @@ const Welcome = () => {
                                         <div className="w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center">
                                             <MessageCircle className="w-5 h-5 text-white" />
                                         </div>
-                                        <span className="dark:text-black">Mulai No!</span>
+                                        <span className="dark:text-black">
+                                            Mulai No!
+                                        </span>
                                     </div>
                                     <div className="bg-white px-6 py-2 rounded-l-full shadow-lg flex items-center gap-2">
                                         <div className="w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center">
                                             <MessageCircle className="w-5 h-5 text-white" />
                                         </div>
-                                        <span className="dark:text-black">Auto Paham!</span>
+                                        <span className="dark:text-black">
+                                            Auto Paham!
+                                        </span>
                                     </div>
                                 </div>
                             </div>
