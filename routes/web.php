@@ -41,6 +41,12 @@ Route::get('/materi', [MateriController::class, 'index'])->name('admin.materi');
 Route::get('/bank-soal', [BankSoalController::class, 'index'])->name('admin.bank-soal');
 Route::get('/bank-soal/{id}', [BankSoalController::class, 'create'])->name('admin.bank-soal.create')->where('id', '[0-9]+');
 
+Route::prefix('app')->group(function () {
+    Route::get('/home', function () {
+        return Inertia::render('Users/Home', []);
+    });
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

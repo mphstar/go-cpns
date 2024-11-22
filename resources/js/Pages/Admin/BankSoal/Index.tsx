@@ -259,8 +259,9 @@ const Index = () => {
 
     const [page, setPage] = useState(1);
     const [search, setSearch] = useState("");
+    const [filter, setFilter] = useState("all");
 
-    const url = `/api/bank-soal?page=${page}&search=${search}`;
+    const url = `/api/bank-soal?page=${page}&search=${search}&filter=${filter}`;
 
     const handleSearch = debounce((term) => {
         setSearch(term);
@@ -308,6 +309,8 @@ const Index = () => {
         });
     };
 
+    
+
     return (
         <AdminTemplate>
             <div className="flex flex-col  min-h-[80dvh]">
@@ -320,6 +323,19 @@ const Index = () => {
                         />
                     </div>
                     <div className="flex gap-2 justify-end">
+                        <Select
+                            value={filter}
+                            onValueChange={(e) => setFilter(e)}
+                        >
+                            <SelectTrigger className="w-full md:w-[180px]">
+                                <SelectValue placeholder="Filter" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="all">All</SelectItem>
+                                <SelectItem value="aktif">Aktif</SelectItem>
+                                <SelectItem value="tidak_aktif">Tidak Aktif</SelectItem>
+                            </SelectContent>
+                        </Select>
                         <Button
                             onClick={() => {
                                 store.setIsOpenModal(true);
@@ -366,7 +382,9 @@ const Index = () => {
                                                     ? "Bela Negara"
                                                     : "Pilar Negara"}
                                             </TableCell>
-                                            <TableCell>{item.soal.length} Soal</TableCell>
+                                            <TableCell>
+                                                {item.soal.length} Soal
+                                            </TableCell>
                                             <TableCell>
                                                 {item.waktu_pengerjaan} Menit
                                             </TableCell>

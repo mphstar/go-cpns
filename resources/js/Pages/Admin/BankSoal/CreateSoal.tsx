@@ -642,7 +642,7 @@ const Index = (props: any) => {
                                         </div>
                                     </form>
                                 </Form>
-                                <div className="flex flex-col h-fit sticky top-28 right-0">
+                                <div className="flex flex-col h-fit md:sticky md:top-28 md:right-0">
                                     <div className="flex gap-2 mb-4 flex-wrap">
                                         {/* button tambah dan hapus soal */}
                                         <Button

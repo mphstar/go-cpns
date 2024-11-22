@@ -50,12 +50,12 @@ const Sidebar = () => {
                         ""
                     )}
                 >
-                    <div className="flex items-center gap-3 px-4 py-3 mb-6 justify-center duration-300 ease-in-out">
+                    <div className="flex items-center gap-1 px-4 py-3 mb-6 justify-center duration-300 ease-in-out">
                         <div className="">
                             <CgAtlasian size={42} className="" />
                         </div>
 
-                        <h1
+                        <div
                             className={clsx(
                                 "flex-1 font-semibold text-lg",
                                 adminStore.sidebarCollapsed
@@ -63,8 +63,13 @@ const Sidebar = () => {
                                     : "md:hidden"
                             )}
                         >
-                            CPNS
-                        </h1>
+                            <span className="text-2xl font-bold text-cyan-500">
+                                GO
+                            </span>
+                            <span className="text-2xl font-bold text-gray-800">
+                                CPNS
+                            </span>
+                        </div>
                     </div>
                     {sidebar.map((item, index) => (
                         <Link key={index} href={item.path}>
@@ -75,7 +80,7 @@ const Sidebar = () => {
                                         ? "md:justify-normal"
                                         : "md:justify-center",
                                     adminStore.title === item.name
-                                        ? "bg-slate-800 text-white"
+                                        ? "bg-cyan-500 text-white"
                                         : "hover:bg-slate-100 dark:hover:bg-slate-900"
                                 )}
                             >
